@@ -1,0 +1,30 @@
+{
+  "$id": "__SCHEMA_URL__",
+  "description": "Create a new task.",
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "body": [
+    {
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title of your task."
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of your task."
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "title": "You can indicate the priority of the task."
+        }
+      }
+    }
+  ],
+  "required": [
+    "title",
+    "description",
+    "priority"
+  ]
+}

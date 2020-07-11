@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  nginx:
+    build: docker/nginx
+    ports:
+      - 8080:80
+    volumes_from:
+      - app
+
+  app:
+    command: "true"
+    image: alpine:3.4
+    volumes:
+      - .:/var/www/app
+
+  postgres:
+    container_name: postgres
+    image: postgres:9.6
+    ports:
+      - "5439:5432"
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "postgres"
+
+  php:
+    build: docker/php
+    environment:
+      PHP_IDE_CONFIG: "serverName=docler"
+    depends_on:
+      - postgres
+    expose:
+      - 9000
+    volumes:
+      - composer-cache:/composer/cache
+    volumes_from:
+      - app
+
+volumes:
+  composer-cache:
+    driver: local
