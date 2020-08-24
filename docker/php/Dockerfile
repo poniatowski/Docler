@@ -19,7 +19,6 @@ RUN apk --update add \
     libbz2 \
     libstdc++ \
     libxslt-dev \
-    openldap-dev \
     postgresql-dev \
     make \
     unzip \
@@ -29,10 +28,7 @@ RUN apk --update add \
     chmod 0777 /var/log/xdebug.log && \
     docker-php-ext-enable xdebug && \
     docker-php-ext-install zip bz2 mbstring pcntl xsl && \
-    docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
-    docker-php-ext-install gd && \
-    docker-php-ext-configure ldap --with-libdir=lib/ && \
-    docker-php-ext-install ldap pdo pdo_pgsql && \
+    docker-php-ext-install pdo pdo_pgsql && \
     apk del build-base && \
     rm -rf /var/cache/apk/*
 
