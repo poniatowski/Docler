@@ -5,9 +5,9 @@ namespace Docler\v1\Task\Repository;
 use DateTimeImmutable;
 use Docler\Application\Database\Factory;
 use Docler\v1\Task\Entity\Task as TaskEntities;
-use Docler\v1\Task\Interfaces\iTask;
+use Docler\v1\Task\Interfaces\TaskInterface;
 
-class Task implements iTask
+class Task implements TaskInterface
 {
     protected Factory $dbh;
 

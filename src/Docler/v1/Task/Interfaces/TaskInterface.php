@@ -2,7 +2,7 @@
 
 namespace Docler\v1\Task\Interfaces;
 
-interface iTask
+interface TaskInterface
 {
     public function save(string $title, string $description, int $priority);
     public function delete(int $id);
