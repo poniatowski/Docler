@@ -34,7 +34,7 @@ class Task
         return $this->taskMapper->find($id);
     }
 
-    public function all(): ?array
+    public function all(): array
     {
         return $this->taskMapper->all();
     }

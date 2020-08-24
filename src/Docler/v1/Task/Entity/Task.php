@@ -3,10 +3,8 @@
 namespace Docler\v1\Task\Entity;
 
 use DateTimeImmutable;
-use JsonSerializable;
-use stdClass;
 
-class Task implements JsonSerializable
+class Task
 {
     public int $id;
 
@@ -39,20 +37,5 @@ class Task implements JsonSerializable
         $this->created = $created;
         $this->modified = $modified;
         $this->removed = $removed;
-    }
-
-    public function jsonSerialize(): stdClass
-    {
-        $ret = new stdClass();
-
-        $ret->id = $this->id;
-        $ret->title = $this->title;
-        $ret->description = $this->description;
-        $ret->priority = $this->priority;
-        $ret->created = $this->created;
-        $ret->modified = $this->modified;
-        $ret->removed = $this->removed;
-
-        return $ret;
     }
 }
